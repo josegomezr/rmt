@@ -55,16 +55,13 @@ msgstr ""
 msgid "Adding product %{product}"
 msgstr ""
 
-msgid "Adding product %{product}\")"
-msgstr ""
-
 msgid "All repositories have already been disabled."
 msgstr ""
 
 msgid "All repositories have already been enabled."
 msgstr ""
 
-msgid "Architecture"
+msgid "Arch"
 msgstr ""
 
 msgid "Attach an existing custom repository to a product"
@@ -73,16 +70,13 @@ msgstr ""
 msgid "Attached repository to product \"%{product_name}\"."
 msgstr ""
 
-msgid "Can not create a local repository directory: %{error}"
+msgid "Authenticated system with login \\\"%{login}\\\""
 msgstr ""
 
-msgid "Can not create a temporary directory: %{error}"
+msgid "Cannot connect to database server. Ensure its credentials are correctly configured in \"%{path}\" or configure RMT with YaST (`%{command}`)."
 msgstr ""
 
 msgid "Cannot connect to database server. Make sure it is running and its credentials are configured in \"%{path}\"."
-msgstr ""
-
-msgid "Cannot connect to database server. Make sure its credentials are configured in \"%{path}\"."
 msgstr ""
 
 msgid "Cannot deactivate the product \"%s\". Other activated products depend upon it."
@@ -106,13 +100,19 @@ msgstr ""
 msgid "Commands:"
 msgstr ""
 
+msgid "Could not create a temporary directory: %{error}"
+msgstr ""
+
 msgid "Could not create deduplication hardlink: %{error}."
 msgstr ""
 
-msgid "Creates a custom repository."
+msgid "Could not create local directory %{dir} with error: %{error}"
 msgstr ""
 
-msgid "Description"
+msgid "Could not find system with login \\\"%{login}\\\" and password \\\"%{password}\\\""
+msgstr ""
+
+msgid "Creates a custom repository."
 msgstr ""
 
 msgid "Detach an existing custom repository from a product"
@@ -127,7 +127,29 @@ msgstr ""
 msgid "Disable mirroring of product repositories by a list of product IDs or product strings."
 msgstr ""
 
-msgid "Disable mirroring of repositories by repository ID"
+msgid ""
+"Disable mirroring of product repositories by a list of product IDs or product strings.\n"
+"\n"
+"Examples:\n"
+"\n"
+"`rmt-cli products disable SLES/15`\n"
+"\n"
+"`rmt-cli products disable 1575`\n"
+"\n"
+"`rmt-cli products disable SLES/15/x86_64 1743`\n"
+msgstr ""
+
+msgid "Disable mirroring of repositories by a list of repository IDs"
+msgstr ""
+
+msgid ""
+"Disable mirroring of repositories by a list of repository IDs\n"
+"\n"
+"Examples:\n"
+"\n"
+"`rmt-cli repos disable 2526`\n"
+"\n"
+"`rmt-cli repos disable 2526 3263`\n"
 msgstr ""
 
 msgid "Disabled repository %{repository}."
@@ -142,6 +164,9 @@ msgstr ""
 msgid "Do you have suggestions for improvement? We would love to hear from you!"
 msgstr ""
 
+msgid "Don't Mirror"
+msgstr ""
+
 msgid "Downloading data from SCC"
 msgstr ""
 
@@ -154,7 +179,31 @@ msgstr ""
 msgid "Enable mirroring of product repositories by a list of product IDs or product strings."
 msgstr ""
 
-msgid "Enable mirroring of repositories by repository ID"
+msgid ""
+"Enable mirroring of product repositories by a list of product IDs or product strings.\n"
+"\n"
+"Examples:\n"
+"\n"
+"`rmt-cli products enable SLES/15`\n"
+"\n"
+"`rmt-cli products enable 1575`\n"
+"\n"
+"`rmt-cli products enable SLES/15/x86_64 1743`\n"
+"\n"
+"`rmt-cli products enable --all-modules SLES/15`\n"
+msgstr ""
+
+msgid "Enable mirroring of repositories by a list of repository IDs"
+msgstr ""
+
+msgid ""
+"Enable mirroring of repositories by a list of repository IDs\n"
+"\n"
+"Examples:\n"
+"\n"
+"`rmt-cli repos enable 2526`\n"
+"\n"
+"`rmt-cli repos enable 2526 3263`\n"
 msgstr ""
 
 msgid "Enabled mirroring for repository %{repo}"
@@ -179,18 +228,6 @@ msgid "Error while mirroring metadata: %{error}"
 msgstr ""
 
 msgid "Error while moving directory %{src} to %{dest}: %{error}"
-msgstr ""
-
-msgid ""
-"Examples:\n"
-"\n"
-"`rmt-cli products enable SLES/15`\n"
-"\n"
-"`rmt-cli products enable 1575`\n"
-"\n"
-"`rmt-cli products enable SLES/15/x86_64,1743`\n"
-"\n"
-"`rmt-cli products enable --all-modules SLES/15`\n"
 msgstr ""
 
 msgid "Export commands for Offline Sync"
@@ -234,6 +271,9 @@ msgstr ""
 msgid "Importing SCC data from %{path}"
 msgstr ""
 
+msgid "Invalid system credentials"
+msgstr ""
+
 msgid "Last Mirrored"
 msgstr ""
 
@@ -264,7 +304,13 @@ msgstr ""
 msgid "List repositories which are marked to be mirrored"
 msgstr ""
 
+msgid "Mandatory"
+msgstr ""
+
 msgid "Mandatory?"
+msgstr ""
+
+msgid "Mirror"
 msgstr ""
 
 msgid "Mirror repos at given path"
@@ -312,9 +358,6 @@ msgstr ""
 msgid "No product ids supplied"
 msgstr ""
 
-msgid "No product license found"
-msgstr ""
-
 msgid "No products attached to repository."
 msgstr ""
 
@@ -322,6 +365,12 @@ msgid "No repositories enabled."
 msgstr ""
 
 msgid "No repositories found for product: %s"
+msgstr ""
+
+msgid "No repository ids supplied"
+msgstr ""
+
+msgid "Not Mandatory"
 msgstr ""
 
 msgid "Not all mandatory repositories are mirrored for product %s"
@@ -348,6 +397,19 @@ msgstr ""
 msgid "Process is locked by the application with pid %{pid}. Close this application or wait for it to finish before trying again"
 msgstr ""
 
+msgid "Product"
+msgstr ""
+
+msgid "Product %{products} could not be found and was not disabled."
+msgid_plural "Products %{products} could not be found and were not disabled."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Product %{products} could not be found and was not enabled."
+msgid_plural "Products %{products} could not be found and were not enabled."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Product %{product} not found"
 msgstr ""
 
@@ -358,10 +420,19 @@ msgid ""
 "by running `%{command}`\n"
 msgstr ""
 
-msgid "Product by id \"%{id}\" not found."
+msgid "Product Architecture"
 msgstr ""
 
-msgid "Product string"
+msgid "Product ID"
+msgstr ""
+
+msgid "Product Name"
+msgstr ""
+
+msgid "Product Version"
+msgstr ""
+
+msgid "Product by id \"%{id}\" not found."
 msgstr ""
 
 msgid "RMT has not been synced to SCC yet. Please run `%{command}` before"
@@ -370,19 +441,29 @@ msgstr ""
 msgid "Read SCC data from given path"
 msgstr ""
 
-msgid "Release stage"
-msgstr ""
-
 msgid "Remove a custom repository"
 msgstr ""
 
 msgid "Removed custom repository by id \"%{id}\"."
 msgstr ""
 
-msgid "Repository %{repo} is not available"
-msgstr ""
+msgid "Repository %{repos} could not be found and was not disabled."
+msgid_plural "Repositories %{repos} could not be found and were not disabled."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Repository %{repos} could not be found and was not enabled."
+msgid_plural "Repositories %{repos} could not be found and were not enabled."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Repository %{repo} was not found in RMT database, perhaps you no longer have a valid subscription for it"
+msgstr ""
+
+msgid "Repository by id %{id} successfully disabled."
+msgstr ""
+
+msgid "Repository by id %{id} successfully enabled."
 msgstr ""
 
 msgid "Repository metadata signatures are missing"
