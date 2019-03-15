@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Fri Mar 15 10:39:08 UTC 2019 - Ivan Kapelyukhin <ikapelyukhin@suse.com>
+
+- Version 1.2.4
+- Fix incorrect triggering of registration sharing (bsc#1129392)
+- Add a script to manually test registration sharing
+
+-------------------------------------------------------------------
 Tue Mar 12 17:21:47 UTC 2019 - Hernan Schmidt <hschmidt@suse.com>
 
 - Version 1.2.3
