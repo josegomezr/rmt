@@ -64,7 +64,7 @@ describe RMT::CLI::Import, :with_fakefs do
         FileUtils.mkdir_p path
         File.write("#{path}/repos.json", repo_settings.to_json)
 
-        expect { command }.to output(/repository by url #{missing_repo_url} does not exist in database/).to_stderr.and output('').to_stdout
+        expect { command }.to output(/repository by URL #{missing_repo_url} does not exist in database/).to_stderr.and output('').to_stdout
       end
     end
 

@@ -115,7 +115,7 @@ RSpec.describe RMT::CLI::Main, :with_fakefs do
           let(:error_message) { 'Access denied for user `rmt`@`localhost`' }
           let(:error_output) do
             'Cannot connect to database server. Ensure its credentials are correctly configured in "/etc/rmt.conf"' \
-            " or configure RMT with YaST (`yast2 rmt`).\n"
+            " or configure RMT with YaST (\"yast2 rmt\").\n"
           end
 
           it 'outputs custom error message' do
@@ -139,7 +139,7 @@ RSpec.describe RMT::CLI::Main, :with_fakefs do
 
           it 'outputs custom error message' do
             expect { command }.to output(
-              "The RMT database has not yet been initialized. Run `systemctl start rmt-migration` to setup the database.\n"
+              "The RMT database has not yet been initialized. Run \"systemctl start rmt-migration\" to setup the database.\n"
             ).to_stderr
           end
         end
