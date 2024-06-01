@@ -79,4 +79,8 @@ Rails.application.routes.draw do
     get '/suma/product_tree.json', to: redirect(path: '/api/scc/product-tree')
   end
   # :nocov:
+
+  if defined?(Webui::Engine) && Settings&.experimental&.web_server
+    mount Webui::Engine, at: '/webui'    
+  end
 end

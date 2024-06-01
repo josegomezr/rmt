@@ -44,6 +44,9 @@ web_server:
   min_threads: 5
   max_threads: 5
   workers: 2
+  experimental:
+    webui: false
+    prometheus: false
 
 connect_api:
   disable_system_tokens: false
