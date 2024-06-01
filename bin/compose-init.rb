@@ -10,7 +10,12 @@ end
 # Create the `/var/lib/rmt/system_uuid` file if it does not exist already. This
 # will ease up the first run of `rmt-cli` inside of this container.
 unless File.exist?('/var/lib/rmt/system_uuid')
-  system('dmidecode -s system-uuid > /var/lib/rmt/system_uuid')
+  system_uuid = %x(dmidecode -s system-uuid) 
+  if $? != 0
+    puts "Falling back to SecureRandom"
+    system_uuid = SecureRandom.uuid
+  end
+  File.write('/var/lib/rmt/system_uuid', system_uuid)  
 end
 
-system('bundle exec rails s -b rmt -p 4224')
+exec %[bundle exec rails server -b rmt -p 4224]

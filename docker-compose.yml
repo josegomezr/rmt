@@ -14,10 +14,12 @@ services:
     build: .
     restart: unless-stopped
     environment:
+      - DISABLE_SPRING=1
       - MYSQL_HOST=db
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
       - SCC_USERNAME=${SCC_USERNAME}
       - SCC_PASSWORD=${SCC_PASSWORD}
+      - RMT_LOAD_ENGINES=${RMT_LOAD_ENGINES}
     volumes:
       - .:/srv/www/rmt
       - public:/srv/www/repo/public/
@@ -39,11 +41,18 @@ services:
     volumes:
       - ./public:/var/www/
       - ./nginx/default.conf:/tmp/default.template
+    environment:
+      - EXTERNAL_PORT=${EXTERNAL_PORT:-8080}
     ports:
-      - "${EXTERNAL_PORT}:80"
+      - "${EXTERNAL_PORT:-8080}:80"
     depends_on:
       - rmt
-    entrypoint: /bin/bash -c 'cat /tmp/default.template | sed "s/\\\$$server_port/$EXTERNAL_PORT/g" > /etc/nginx/conf.d/default.conf && nginx -g "daemon off;"'
+    command:
+      - bash
+      - -ce
+      - |
+        envsubst '$$EXTERNAL_PORT' < /tmp/default.template > /etc/nginx/conf.d/default.conf
+        nginx -g 'daemon off;'
 
 volumes:
   public:
