@@ -1,0 +1,23 @@
+body {
+	font-family: sans-serif;
+}
+
+.flex-container {
+	display: flex;
+  	justify-content: center;
+}
+
+.stats-grid {
+    display: grid;
+    width: 60%;
+    /*grid-template-rows: 30em 30em 30em;
+    grid-template-columns: 30em 30em 30em;*/
+}
+
+.stats-box {
+  border: 1px solid #555;
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+  padding: 1em;
+}

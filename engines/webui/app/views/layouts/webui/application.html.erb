@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webui</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "/assets/style", media: "all" %>
+</head>
+<body>
+
+  <div hx-boost="true">
+    <%= yield %>
+  </div>
+
+  <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
+</body>
+</html>

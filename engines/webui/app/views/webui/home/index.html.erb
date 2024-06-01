@@ -1,0 +1,82 @@
+<h1>RMT Server Info</h1>
+
+<div class="flex-container">
+	<div class="stats-grid">
+		<div class="stats-box">
+			<h2>Registration</h2>
+
+			<% if rmt_registered? %>
+				✅ Registered
+			<% else %>
+				❌ Not Registered
+			<% end %>
+			<% if !rmt_registered? %>
+				<ul>
+					<li>
+						Registration Host: <code><%= rmt_scc_config[:registration_host] %></code>
+					</li>
+					<li>
+						RMT Login: <code><%= rmt_scc_config[:login] %></code>
+					</li>
+					<li>
+						RMT UUID: <code><%= rmt_uuid %></code>
+					</li>
+				</ul>
+			<% end %>
+		</div>
+	</div>
+	<div class="stats-grid">
+		<div class="stats-box">
+			<h3>
+				<%= link_to 'Products 📑', products_path %>
+			</h3>
+			<div>
+				Bases: <strong><%= @products_stats[:base] || 0 %></strong>
+			</div>
+			<div>
+				Modules: <strong><%= @products_stats[:module] || 0 %></strong>
+			</div>
+			<div>
+				Extensions: <strong><%= @products_stats[:extension] || 0 %></strong>
+			</div>
+			<div>
+				Total: <strong><%= @products_stats[:total] || 0 %></strong>
+			</div>
+		</div>
+		<div class="stats-box">
+			<h3>Repositories</h3>
+
+			<div>
+				Enabled: <strong><%= @repositories_stats[:only_enabled] %></strong>
+			</div>
+			<div>
+				Mirroring Enabled: <strong><%= @repositories_stats[:only_mirroring_enabled] %></strong>
+			</div>
+			<div>
+				Fully Mirrored: <strong><%= @repositories_stats[:only_fully_mirrored] %></strong>
+			</div>
+
+			<div>
+				Custom: <strong><%= @repositories_stats[:only_custom] %></strong>
+			</div>
+			<div>
+				From SCC: <strong><%= @repositories_stats[:only_scc] %></strong>
+			</div>
+			<div>
+				Total: <strong><%= @repositories_stats[:total] %></strong>
+			</div>
+		</div>
+		<div class="stats-box">
+			<h3>Subscriptions</h3>
+			<div>
+				Total: <strong><%= @subscriptions_count %></strong>
+			</div>
+		</div>
+		<div class="stats-box">
+			<h3>Systems</h3>
+			<div>
+				<strong>Total: <%= @systems_count %></strong>
+			</div>
+		</div>
+	</div>
+</div>
