@@ -1,0 +1,57 @@
+<h1>RMT Server Info</h1>
+
+<%= link_to '« Back', root_path %>
+<h1>Systems</h1>
+
+<% if @show_regcode %>
+	<%= link_to "Hide Regcodes", url_for(show_regcode: '') %>
+<% else %>
+	<%= link_to "Show Regcodes", url_for(show_regcode: '1') %>
+<% end %>
+
+
+<table border="1" cellspacing="0" width="100%" cellpadding="5">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Hostname</th>
+			<th>Login</th>
+			<th>Registered at</th>
+			<th>SCC registered at</th>
+			<th>Last Seen at</th>
+			<th>Proxy byos</th>
+			<th>System Information</th>
+		</tr>
+	</thead>
+	<% if @systems.any? %>
+		<% @systems.each_with_index do |system, idx|%>
+		<tbody>
+			<tr>
+				<td><%= idx+1 %></td>
+				<td><%= system.hostname %></td>
+				<td><%= system.login %></td>
+				<td><%= system.registered_at %></td>
+				<td><%= system.scc_registered_at %></td>
+				<td><%= system.last_seen_at %></td>
+				<td><%= system.proxy_byos %></td>
+				<td>
+					<pre><%= system.system_information %></pre>
+				</td>
+			</tr>
+		</tbody>
+		<% end %>
+		<tfoot>
+			<td colspan="8">
+			pagination links
+			</td>
+		</tfoot>
+	<% else %>
+		<tbody>
+			<tr>
+				<td colspan="8">
+					No systems found
+				</td>
+			</tr>
+		</tbody>
+	<% end %>
+</table>

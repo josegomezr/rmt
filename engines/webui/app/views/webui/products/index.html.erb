@@ -3,13 +3,13 @@
 <%= link_to '« Back', root_path %>
 <h1>Products</h1>
 
-<table border="1" cellspacing="0" width="100%">
+<table border="1" cellspacing="0" width="100%" cellpadding="5">
 	<thead>
 		<tr>
 			<th>#</th>
 			<th>Name</th>
-			<th>Description</th>
 			<th>Type</th>
+			<th width="40%">Description</th>
 			<th>EULA</th>
 		</tr>
 	</thead>
@@ -19,8 +19,8 @@
 			<tr>
 				<td><%= idx+1 %></td>
 				<td><%= product.friendly_name %></td>
-				<td><%= sanitize product.description %></td>
 				<td><%= product.product_type.humanize %></td>
+				<td><%= sanitize product.description %></td>
 				<td>
 					<% if product.eula_url.blank? %>
 						No EULA
