@@ -1,0 +1,53 @@
+<h1>RMT Server Info</h1>
+
+<%= link_to '« Back', root_path %>
+<h1>Subscriptions</h1>
+
+<% if @show_regcode %>
+	<%= link_to "Hide Regcodes", url_for(show_regcode: '') %>
+<% else %>
+	<%= link_to "Show Regcodes", url_for(show_regcode: '1') %>
+<% end %>
+
+<table border="1" cellspacing="0" width="100%" cellpadding="5">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Kind</th>
+			<th>Status</th>
+			<th>Regcode</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% if @subscriptions.any? %>
+			<% @subscriptions.each_with_index do |subscription, idx|%>
+			<tr>
+				<td><%= idx+1 %></td>
+				<td><%= subscription.id %></td>
+				<td><%= subscription.name %></td>
+				<td><%= subscription.kind %></td>
+				<td><%= subscription.status %></td>
+				<td>
+					<% if @show_regcode %>
+						<code>
+							<%= subscription.regcode %>
+						</code>
+					<% else %>
+						<code>
+							<%= subscription.regcode[0..1] %>...<%= subscription.regcode[-2..-1] %>
+						</code>
+					<% end %>
+				</td>
+			</tr>
+			<% end %>
+		<% else %>
+			<tr>
+				<td colspan="5">
+					No subscriptions found
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

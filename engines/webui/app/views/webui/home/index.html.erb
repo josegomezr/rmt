@@ -28,7 +28,7 @@
 	<div class="stats-grid">
 		<div class="stats-box">
 			<h3>
-				<%= link_to 'Products 📑', products_path %>
+				<%= link_to '📑 Products', products_path %>
 			</h3>
 			<div>
 				Bases: <strong><%= @products_stats[:base] || 0 %></strong>
@@ -44,7 +44,9 @@
 			</div>
 		</div>
 		<div class="stats-box">
-			<h3>Repositories</h3>
+			<h3>
+				<%= link_to '📦 Repositories', repositories_path %>
+			</h3>
 
 			<div>
 				Enabled: <strong><%= @repositories_stats[:only_enabled] %></strong>
@@ -67,13 +69,17 @@
 			</div>
 		</div>
 		<div class="stats-box">
-			<h3>Subscriptions</h3>
+			<h3>
+				<%= link_to '📰 Subscriptions', subscriptions_path %>
+			</h3>
 			<div>
 				Total: <strong><%= @subscriptions_count %></strong>
 			</div>
 		</div>
 		<div class="stats-box">
-			<h3>Systems</h3>
+			<h3>
+				<%= link_to '💻 Systems', systems_path %>
+			</h3>
 			<div>
 				<strong>Total: <%= @systems_count %></strong>
 			</div>
