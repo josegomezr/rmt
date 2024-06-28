@@ -1,36 +1,41 @@
+<%
+extra_pages = 2
+current_page = locals[:current_page]
+max_pages = locals[:max_pages]
 
-<% if locals[:current_page] > 1 %>
+page_start = [1, current_page-extra_pages].max
+
+page_end = [page_start + 2*extra_pages, max_pages].min
+%>
+
+<% if current_page > 1 %>
 	<%= link_to '⏮️', url_for(page: 1) %>
 <% else %>
 	⏮️
 <% end %>
 
-<% if locals[:current_page] > 1 %>
-	<%= link_to '◀️', url_for(page: locals[:current_page]-1) %>
+<% if current_page > 1 %>
+	<%= link_to '◀️', url_for(page: current_page-1) %>
 <% else %>
 	◀️
 <% end %>
 
-<% [locals[:current_page]-5, locals[:current_page]].select(&:positive?).each do |page| %>
-	<% if page == locals[:current_page] %>
+<% (page_start..page_end).each do |page| %>
+	<% if page == current_page %>
 		<strong><%= page %></strong>
 	<% else %>
 		<%= link_to page, url_for(page: page) %>
 	<% end %>
 <% end %>
 
-<% if locals[:current_page] < locals[:max_pages] %>
-	<%= link_to '»', url_for(page: locals[:current_page]+1) %>
-<% end %>
-
-<% if locals[:current_page] < locals[:max_pages] %>
-	<%= link_to '▶️', url_for(page: locals[:current_page]+1) %>
+<% if current_page < max_pages %>
+	<%= link_to '▶️', url_for(page: current_page+1) %>
 <% else %>
 	▶️
 <% end %>
 
-<% if locals[:current_page] < locals[:max_pages] %>
-	<%= link_to '⏭️', url_for(page: locals[:max_pages]) %>
+<% if current_page < max_pages %>
+	<%= link_to '⏭️', url_for(page: max_pages) %>
 <% else %>
 	⏭️
 <% end %>

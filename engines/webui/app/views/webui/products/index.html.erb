@@ -1,7 +1,24 @@
 <h1>RMT Server Info</h1>
 
 <%= link_to '« Back', root_path %>
-<h1>Products</h1>
+
+
+<div class="grid">
+	<div>
+		<h1>Products</h1>
+	</div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<!-- <form hx-get="<= current_path %>" hx-trigger="change"> -->
+	<form>
+		<legend>Per page:</legend>
+		<select name="per_page" hx-on:change="this.form.submit()">
+			<%= options_for_select(controller.per_page_choices, controller.per_page) %>
+		</select>
+		<input type="hidden" name="page" value="<%= controller.current_page %>">
+	</form>
+</div>
 
 <table border="1" cellspacing="0" width="100%" cellpadding="5">
 	<thead>
@@ -13,9 +30,9 @@
 			<th>EULA</th>
 		</tr>
 	</thead>
+	<% if @products.any? %>
 	<tbody>
-		<% if @products.any? %>
-			<% @products.each_with_index do |product, idx|%>
+	<% @products.each_with_index do |product, idx|%>
 			<tr>
 				<td><%= idx+1 %></td>
 				<td><%= product.friendly_name %></td>
@@ -29,13 +46,20 @@
 					<% end %>
 				</td>
 			</tr>
-			<% end %>
-		<% else %>
-			<tr>
-				<td colspan="3">
-					No products found
-				</td>
-			</tr>
-		<% end %>
+	<% end %>
 	</tbody>
+	<tfoot>
+		<td colspan="8" align="center" class="text-center">
+			<%= render 'pagination', locals: { current_page: controller.current_page, max_pages: @max_pages } %>
+		</td>
+	</tfoot>
+ 	<% else %>
+  <tbody>
+    <tr>
+      <td colspan="5">
+        No repositories found
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
 </table>

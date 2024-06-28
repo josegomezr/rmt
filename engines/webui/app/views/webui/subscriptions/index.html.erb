@@ -20,9 +20,9 @@
 			<th>Regcode</th>
 		</tr>
 	</thead>
+	<% if @subscriptions.any? %>
 	<tbody>
-		<% if @subscriptions.any? %>
-			<% @subscriptions.each_with_index do |subscription, idx|%>
+		<% @subscriptions.each_with_index do |subscription, idx|%>
 			<tr>
 				<td><%= idx+1 %></td>
 				<td><%= subscription.id %></td>
@@ -42,12 +42,20 @@
 				</td>
 			</tr>
 			<% end %>
-		<% else %>
-			<tr>
-				<td colspan="5">
-					No subscriptions found
-				</td>
-			</tr>
-		<% end %>
+	</tbody>
+	<tfoot>
+		<td colspan="6" align="center" class="text-center">
+			<%= render 'pagination', locals: { current_page: controller.current_page, max_pages: @max_pages } %>
+		</td>
+	</tfoot>
+ 	<% else %>
+  <tbody>
+    <tr>
+      <td colspan="6">
+        No subscriptions found
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
 	</tbody>
 </table>

@@ -80,7 +80,7 @@ Rails.application.routes.draw do
   end
   # :nocov:
 
-  if defined?(Webui::Engine) && Settings.dig(:experimental, :webui)
+  if defined?(Webui::Engine) # && Settings.dig(:experimental, :webui)
     mount Webui::Engine, at: '/webui'    
   end
 end

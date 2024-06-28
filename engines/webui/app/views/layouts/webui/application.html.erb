@@ -6,12 +6,12 @@
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag "/assets/style", media: "all" %>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.jade.min.css" />
 </head>
 <body>
-
-  <div hx-boost="true">
+  <main class="container-fluid" hx-boost="true">
     <%= yield %>
-  </div>
+  </main>
 
   <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
 </body>

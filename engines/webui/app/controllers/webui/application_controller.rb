@@ -1,12 +1,15 @@
 module Webui
   class ApplicationController < ActionController::Base
-
     def current_page
       [params[:page].to_i, 1].max
     end
 
     def per_page
       [params[:per_page].to_i, 10].max
+    end
+
+    def per_page_choices
+      %w[10 25 50]
     end
 
     def offset_page
