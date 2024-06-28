@@ -4,40 +4,39 @@
 <h1>Repositories</h1>
 
 <table border="1" cellspacing="0" width="100%" cellpadding="5">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>URL</th>
-		</tr>
-	</thead>
-		<% if @repositories.any? %>
-		<% @repositories.each_with_index do |product, idx|%>
-		<tbody>
-			<tr>
-				<td><%= idx+1 %></td>
-				<td><%= product.friendly_id %></td>
-				<td><%= product.name %></td>
-				<td><%= sanitize product.description %></td>
-				<td><%= product.external_url %></td>
-			</tr>
-		</tbody>
-		<% end %>
-		<tfoot>
-			<td colspan="8" align="center">
-				<%= render 'pagination', locals: { current_page: controller.current_page, max_pages: @max_pages } %>
-			</td>
-		</tfoot>
-
-		<% else %>
-		<tbody>
-			<tr>
-				<td colspan="5">
-					No repositories found
-				</td>
-			</tr>
-		</tbody>
-		<% end %>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <% if @repositories.any? %>
+  <% @repositories.each_with_index do |product, idx|%>
+  <tbody>
+    <tr>
+      <td><%= idx+1 %></td>
+      <td><%= product.friendly_id %></td>
+      <td><%= product.name %></td>
+      <td><%= sanitize product.description %></td>
+      <td><%= product.external_url %></td>
+    </tr>
+  </tbody>
+  <% end %>
+  <tfoot>
+    <td colspan="8" align="center" class="text-center">
+      <%= render 'pagination', locals: { current_page: controller.current_page, max_pages: @max_pages } %>
+    </td>
+  </tfoot>
+  <% else %>
+  <tbody>
+    <tr>
+      <td colspan="5">
+        No repositories found
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
 </table>
