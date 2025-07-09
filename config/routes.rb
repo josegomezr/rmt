@@ -89,4 +89,8 @@ Rails.application.routes.draw do
   if defined?(Webui::Engine) # && Settings.dig(:experimental, :webui)
     mount Webui::Engine, at: '/webui'    
   end
+
+  if defined?(Telemetry::Engine) # && Settings.dig(:experimental, :webui)
+    mount Telemetry::Engine, at: '/'
+  end
 end

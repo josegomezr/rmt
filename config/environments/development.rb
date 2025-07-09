@@ -16,10 +16,17 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
+  config.action_dispatch.x_sendfile_header = "X-Accel-Redirect"
+  config.public_file_server.enabled = false
+  config.public_file_server.headers = {
+    'X-RMT' => "yes",
+  }
+
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
+      'Cache-Control' => "public, max-age=#{2.days.to_i}",
+      'X-RMT' => "yes",
     }
   else
     config.action_controller.perform_caching = false
